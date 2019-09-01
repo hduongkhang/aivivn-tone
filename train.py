@@ -189,9 +189,9 @@ class Trainer:
                 self.global_acc.append(c_correct)
 
                 # visualize
-                if self.global_iter == 1:
-                    self.vis_loss.plot_line(self.global_loss[0], 1)
-                    self.vis_acc.plot_line(self.global_acc[0]/total_numel, 1)
+                # if self.global_iter == 1:
+                #     self.vis_loss.plot_line(self.global_loss[0], 1)
+                #     self.vis_acc.plot_line(self.global_acc[0]/total_numel, 1)
 
                 # update graph every 10 iterations
                 if self.global_iter % 10 == 0:
@@ -200,8 +200,8 @@ class Trainer:
                     moving_avg_acc = sum(self.global_acc[max(0, len(self.global_acc) - 300):]) / sum(self.global_numel[max(0, len(self.global_numel) - 300):])
 
                     # visualize
-                    self.vis_loss.plot_line(moving_avg_loss, self.global_iter)
-                    self.vis_acc.plot_line(moving_avg_acc, self.global_iter)
+                    # self.vis_loss.plot_line(moving_avg_loss, self.global_iter)
+                    # self.vis_acc.plot_line(moving_avg_acc, self.global_iter)
 
             # print
             if i % print_every == 0:
