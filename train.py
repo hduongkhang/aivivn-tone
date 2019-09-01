@@ -303,10 +303,24 @@ def load_data_in_parts(train_src, train_tgt, val_src, val_tgt, batch_size=64, sa
 
 
 if __name__ == "__main__":
-    train_src = ["data/train.src.0", "data/train.src.1", "data/train.src.2", "data/train.src.3"]
-    train_tgt = ["data/train.tgt.0", "data/train.tgt.1", "data/train.tgt.2", "data/train.tgt.3"]
-    val_src = "data/val.src"
-    val_tgt = "data/val.tgt"
+    import argparse
+
+    parser = argparse.ArgumentParser(description='DEC.')
+    parser.add_argument('--data_dir', required=True, type=str, help='Root directory contains training/testing data')
+
+    args = parser.parse_args()
+    data_dir = args.data_dir
+
+    train_src0 = os.path.join(data_dir, "train.src.0")
+    train_src = [train_src0]
+    train_tgt0 = os.path.join(data_dir,"train.tgt.0")
+    train_tgt =[train_tgt0]
+    # train_src = ["data/train.src.0", "data/train.src.1", "data/train.src.2", "data/train.src.3"]
+    # train_tgt = ["data/train.tgt.0", "data/train.tgt.1", "data/train.tgt.2", "data/train.tgt.3"]
+    val_src = os.path.join(data_dir,"val.src")
+    val_tgt = os.path.join(data_dir,"val.tgt")
+    # val_src = "data/val.src"
+    # val_tgt = "data/val.tgt"
     # src_vocab_path = "checkpoint/vocab.src"
     # tgt_vocab_path = "checkpoint/vocab.tgt"
 
