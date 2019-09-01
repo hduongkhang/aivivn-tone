@@ -10,7 +10,7 @@ from torchtext.data import BucketIterator
 from dataset import Seq2SeqDataset, PAD, tgt_field_name
 from model import Encoder, Decoder, Seq2SeqConcat
 from cyclic_lr import CyclicLR
-from visualization import Visualization
+# from visualization import Visualization
 
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
@@ -65,8 +65,8 @@ class Trainer:
         self.global_acc = []
 
         # visualization
-        self.vis_loss = Visualization(env_name="aivivn_tone", xlabel="step", ylabel="loss", title="loss (mean per 300 steps)")
-        self.vis_acc = Visualization(env_name="aivivn_tone", xlabel="step", ylabel="acc", title="training accuracy (mean per 300 steps)")
+        # self.vis_loss = Visualization(env_name="aivivn_tone", xlabel="step", ylabel="loss", title="loss (mean per 300 steps)")
+        # self.vis_acc = Visualization(env_name="aivivn_tone", xlabel="step", ylabel="acc", title="training accuracy (mean per 300 steps)")
 
     def train(self, train_iterator, val_iterator, start_epoch=0, print_every=100):
         for epoch in range(start_epoch, self.n_epochs):
